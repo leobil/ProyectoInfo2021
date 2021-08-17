@@ -1,0 +1,31 @@
+{% extends "usuario/base.html" %}
+
+{% block título %} Proyecto Info {% endblock %}
+
+{% block body %}
+
+    {% if request.user.username %}
+        <div class="card">
+            <div class="card-header">
+            Jugar
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">Juego de Preguntas y Respuestas</h5>
+            <p class="card-text">Juego de Preguntas y Respuestas con múltiples opciones.</p>
+            <a href="/juego" class="btn btn-primary">Jugar</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="card">
+            <div class="card-header">
+            Jugar
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">Juego de Preguntas y Respuestas</h5>
+            <p class="card-text">Para Jugar debes Iniciar Sesión.</p>
+            <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

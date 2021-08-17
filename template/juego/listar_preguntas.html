@@ -1,0 +1,44 @@
+{% extends "usuario/base.html" %}
+
+{% block título %} Preguntas {% endblock %}
+
+{% block body %}
+
+    <!-- <p> Hola mundo!</p>
+    
+    {% for valor in preguntas %}
+        {{valor.id}} {{valor}}
+        <br>
+    {% endfor %} -->
+
+    <br>
+    <div class="container m-5">
+        <div class="row justify-content-md-center">
+          <div class="mb-3 col-lg-4">
+            <form method="POST">
+                {% csrf_token %}
+                {% for key,value in data.items %} 
+                    {% if value.categoria.categoria == 'Historia' %}
+                        <div class="alert alert-warning" role="alert">{{value.categoria}}</div>
+                    {% else %}
+                        <div class="alert alert-info" role="alert">{{value.categoria}}</div>
+                    {% endif %}
+
+                    {{key}}<br> 
+                    <select name="{{forloop.counter}}">
+                        {% for opcion in value.opciones %}
+                        <option value="{{opcion.id}}"> {{opcion.opcion}}</option>
+                        {% endfor %}}
+                    </select>
+                    <!-- {% for respuesta in value %}
+                        {{respuesta}} <br>
+                    {% endfor %} -->
+                <br><br>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+         </div>
+       </div>
+    </div>
+    
+{% endblock %}

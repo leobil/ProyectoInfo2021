@@ -1,0 +1,59 @@
+{% extends "usuario/base.html" %}
+
+{% block título %} Login {% endblock %}
+
+{% block body %}
+
+  <!-- <form method="post">
+        {% csrf_token %}
+        <div>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </div>
+        <div>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </div>
+        <div>
+          <input type="submit" value="login" />
+        </div>
+    </form>
+
+    <a href="/registro">Registrar usuario</a> -->
+      
+    <div class="container m-5">
+      <div class="row justify-content-md-center">
+        <div class="mb-3 col-lg-4">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <!-- <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Submit</button><br><br>
+            <a href="/registro" class="btn btn-primary">Registrar usuario</a>                                  
+          </form>  
+        </div>                  
+      </div>   
+    </div>         
+    
+    {% if form.errors %}
+      <div class="alert alert-danger" role="alert">
+        <p>Su nombre de usuario y contraseña no coinciden. Por favor revise los datos ingresados e intente nuevamente.</p>  
+      </div>
+    {% endif %}
+
+{% endblock %}
+        
+    
+    
+
